@@ -63,6 +63,11 @@ class App extends Component {
             width={1000}>
             <AddStudentForm 
               onSuccess={() => {this.closeAddStudentModal(); this.fetchStudents()}}
+              onFailure={(error) => {
+                const message = error.error.message;
+                const description = error.error.error; 
+                errorNotification(message, description);
+              }}
             ></AddStudentForm>
 
           </Modal>
